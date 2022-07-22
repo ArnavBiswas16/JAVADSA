@@ -1,6 +1,6 @@
 public class NthFromEnd {
 
-    static int i = 0;
+    // static int i = 1;
     public static void main(String[] args) {
         LinkedList l = new LinkedList();
 
@@ -13,21 +13,23 @@ public class NthFromEnd {
 
         int n = 2;
 
-        nth(l.head, n);
-
+        nth(l.head, n, 1);
+        l.show();
     }
 
-     static void nth(Node h, int n){
+     static int nth(Node h, int n, int i){
 
         if(h.next == null){
-            return;
+            return i;
         } 
            
-        nth(h.next, n);
+        i = nth(h.next, n, i);
         if (++i == n){
-            System.out.println(h.data);
+            h.data = h.next.data;
+            h.next = h.next.next;
+            
         }
 
-
+        return i;
      }
 }

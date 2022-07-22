@@ -1,7 +1,7 @@
 public class LCS {
     public static void main(String[] args) {
-        String x= "abcd";
-        String y= "abmcd";
+        String x= "HEAP";
+        String y= "PEA";
 
         int m = x.length();
         int n = y.length();

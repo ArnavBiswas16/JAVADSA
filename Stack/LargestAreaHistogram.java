@@ -7,14 +7,15 @@ public class LargestAreaHistogram {
         int area = 0;
         int nlr[] = nlr(arr);
         int nll[] = nll(arr);
+
         for(int i =0; i<arr.length; i++){
 
-            int r = nlr[i]
-                area = (nlr[i]-1 - nll[i]+1 +1) * arr[i];
-                System.out.println(area+" "+ i);
-                if(area > max){
-                    max = area;
-                }
+            int r = nlr[i];
+            area = (nlr[i]-1 - (nll[i]+1) +1) * arr[i];
+            if(area > max){
+                max = area;
+            }
+              
         }
         System.out.println(max);
 

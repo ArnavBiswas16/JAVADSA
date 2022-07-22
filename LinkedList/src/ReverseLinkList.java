@@ -5,7 +5,8 @@ public class ReverseLinkList {
         l.insert(1);
         l.insert(4);
         l.insert(3);
-
+        // l.show();
+        // System.out.println(" ");
         // iterative 
         Node prev, curr, next;
         prev = null;
@@ -22,8 +23,8 @@ public class ReverseLinkList {
         // l.show();
 
         // iterative method
-        l.head = recursionReverse(l.head);
-        l.show();
+        // l.head = recursionReverse(l.head);
+        // l.show();
         
                 
         // iterative method
@@ -40,7 +41,6 @@ public class ReverseLinkList {
         }
 
         Node rest =  recursionReverse(n.next);
-
         n.next.next = n;
 
         n.next = null;

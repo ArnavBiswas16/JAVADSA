@@ -2,37 +2,35 @@ import java.util.Arrays;
 public class NextPerm {
     public static void main(String[] args) {
 
-        int arr[] = {9,1,2,4,3,1,0};
-        int l =  arr.length-1;
-     
-        for(int i = arr.length-2; i>=0; i--){
-            if(arr[i] < arr[l]){
-                l = i;
+        int arr[] = {1,3,5,4,2};
+        int i=0, l =  arr.length;
+
+        for(i=l-2; i>=0; i--){
+            if(arr[i]< arr[i+1]){
                 break;
-            } else{
-                l = arr[i];
             }
         }
-        int maxi =0;
-        int max = Integer.MAX_VALUE;
-        for(int i=l+1; i<arr.length; i++){
-            if(arr[i]>arr[l] && arr[i]<max){
-                maxi = i;
-                max= arr[i];
+        int ind = i;
+
+        for(i= l-1; l>=ind; i--){
+            if(arr[i]>arr[ind]){
+                break;
             }
         }
 
-        int swap = arr[l];
-        arr[l] = arr[maxi];
-        arr[maxi] = swap;
+    
+        int temp  = arr[i];
+        arr[i] = arr[ind];
+        arr[ind] = temp;
 
-        int r = arr.length-1;
-        l++;
-        while(l<r){
-            int temp =  arr[l];
-            arr[l++] = arr[r];
-            arr[r--] = temp;
+
+        ind++; l--;
+        while(ind < l){
+            temp = arr[l];
+            arr[l] = arr[ind];
+            arr[ind] = temp;
+            ind++; l--;
         }
-        System.out.println(Arrays.toString(arr));
+System.out.println(Arrays.toString(arr));
     }
 }
